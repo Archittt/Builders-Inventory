@@ -1,0 +1,176 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F4F4F4; /* Light Gray Background */
+    color: #333; /* Dark Gray Text */
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #4CAF50; /* Primary Green */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+    margin-top: 10px;
+}
+
+header nav .btn {
+    background-color: #fff; /* White for buttons */
+    color: #4CAF50; /* Green Text */
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+header nav .btn:hover {
+    background-color: #2C6B29; /* Dark Green on hover */
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+main nav .btn {
+    background-color: lightgreen; 
+    color: #000000; 
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+main nav .btn:hover {
+    background-color: #000100; 
+    color: lightgreen;
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff; /* White Background for Table */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #4CAF50; /* Green Header */
+    color: white;
+    font-size: 1.1rem;
+}
+
+td {
+    font-size: 1rem;
+}
+
+td button {
+    padding: 8px 16px;
+    margin: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF5722; /* Orange for Action Buttons */
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+td button:hover {
+    background-color: #E64A19; /* Darker Orange on hover */
+}
+
+td button:focus {
+    outline: none;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+    background-color: #fff; /* White Background for Forms */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form input, form textarea {
+    background-color: #F9F9F9; /* Light Background for Inputs */
+}
+
+form button {
+    background-color: #4CAF50; /* Green Button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #2C6B29; /* Dark Green on hover */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #4CAF50; /* Green Footer */
+    color: white;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        font-size: 14px;
+    }
+
+    form input, form button {
+        font-size: 0.9rem;
+    }
+
+    header nav .btn {
+        font-size: 0.9rem;
+    }
+}
+#filter-form {
+    margin: 20px 0;
+}
+
+.property-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}

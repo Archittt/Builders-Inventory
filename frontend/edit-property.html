@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Property</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Edit Property</h1>
+    </header>
+    <main>
+        <form id="edit-property-form">
+            <label for="sector">Sector: <input type="text" name="sector" id="sector" /></label>
+            <label for="pocket">Pocket: <input type="text" name="pocket" id="pocket" /></label>
+            <label for="siteNo">Site No.: <input type="text" name="siteNo" id="siteNo" /></label>
+            <label for="size">Size: <input type="text" name="size" id="size" /></label>
+            <label for="demand">Demand: <input type="text" name="demand" id="demand" /></label>
+            <label for="description">Description: <input type="text" name="description" id="description" /></label>
+            <label for="builder">Builder: <input type="text" name="builder" id="builder" /></label>
+            <button type="submit">Update Property</button>
+        </form>
+    </main>
+
+    <script>
+        const API_URL = "http://localhost:3000/api";
+        const params = new URLSearchParams(window.location.search);
+        const propertyId = params.get("id");
+
+        async function loadPropertyData() {
+            try {
+                const response = await fetch(`${API_URL}/property/${propertyId}`);
+                const property = await response.json();
+                document.getElementById("sector").value = property.sector;
+                document.getElementById("pocket").value = property.pocket;
+                document.getElementById("siteNo").value = property.siteNo;
+                document.getElementById("size").value = property.size;
+                document.getElementById("demand").value = property.demand;
+                document.getElementById("description").value = property.description;
+                document.getElementById("builder").value = property.builder;
+            } catch (error) {
+                console.error("Error loading property data:", error);
+            }
+        }
+
+        document.getElementById("edit-property-form").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const updates = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(`${API_URL}/update-property/${propertyId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(updates),
+                });
+
+                if (response.ok) {
+                    alert("Property updated successfully!");
+                    window.location.href = "/";
+                } else {
+                    const errorData = await response.json();
+                    alert(`Failed to update property: ${errorData.error}`);
+                }
+            } catch (error) {
+                console.error("Error updating property:", error);
+            }
+        });
+
+        loadPropertyData();
+    </script>
+</body>
+</html>

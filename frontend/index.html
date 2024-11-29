@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Builder Inventory</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>ConnectToBuilder</h1>
+        <nav>
+            <a href="add-property.html" class="btn">Add Property</a>
+        </nav>
+    </header>
 
+    <main>
+        <nav>
+            <a href="filter-property.html" class="btn">Filter</a>
+        </nav>
+        <table id="property-list">
+            <thead>
+                <tr>
+                    <th>Sector</th>
+                    <th>Pocket</th>
+                    <th>Site No.</th>
+                    <th>Size</th>
+                    <th>Demand</th>
+                    <th>Description</th>
+                    <th>Builder</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Properties will be injected here -->
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 ConnectToBuilder All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const API_URL = "http://localhost:3000/api";
+
+        async function fetchProperties() {
+            try {
+                const response = await fetch(`${API_URL}/properties`);
+                const properties = await response.json();
+
+                const propertyList = document.getElementById("property-list").querySelector("tbody");
+                propertyList.innerHTML = "";
+
+                properties.forEach((property) => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${property.sector}</td>
+                        <td>${property.pocket}</td>
+                        <td>${property.siteNo}</td>
+                        <td>${property.size}</td>
+                        <td>${property.demand}</td>
+                        <td>${property.description}</td>
+                        <td>${property.builder}</td>
+                        <td>
+                            <button onclick="editProperty('${property._id}')">Edit</button>
+                            <button onclick="deleteProperty('${property._id}')">Delete</button>
+                        </td>
+                    `;
+
+                    propertyList.appendChild(row);
+                });
+            } catch (error) {
+                console.error("Error fetching properties:", error);
+            }
+        }
+
+        function editProperty(id) {
+            window.location.href = `/edit-property.html?id=${id}`;
+        }
+
+        async function deleteProperty(id) {
+            if (confirm("Are you sure you want to delete this property?")) {
+                try {
+                    const response = await fetch(`/api/delete-property/${id}`, { method: "DELETE" });
+
+                    if (response.ok) {
+                        alert("Property deleted successfully!");
+                        fetchProperties();
+                    } else {
+                        const errorData = await response.json();
+                        alert(`Failed to delete property: ${errorData.error}`);
+                    }
+                } catch (error) {
+                    console.error("Error deleting property:", error);
+                }
+            }
+        }
+
+        fetchProperties();
+    </script>
+</body>
+</html>
