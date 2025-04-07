@@ -1,17 +1,17 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 // Define the Property Schema
 const propertySchema = new mongoose.Schema({
-    sector: String,
-    pocket: String,
-    siteNo: String,
-    size: String,
-    demand: String,
-    description: String,
-    builder: String
+  sector: String,
+  pocket: String,
+  siteNo: String,
+  size: String,
+  demand: String,
+  description: String,
+  builder: String,
+  mobileNo: Number,
 });
 
-// Use the default `_id` field provided by Mongoose
-const Property = mongoose.model('Property', propertySchema);
+const Property = mongoose.model("Property", propertySchema);
 
 module.exports = Property;
