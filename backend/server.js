@@ -4,29 +4,48 @@ const cors = require("cors");
 const path = require("path");
 const propertyRoutes = require("./routes/propertyRoutes");
 
+const app = express();
 
 // Middleware
-const app = express();
-app.use(express.json()); // To parse JSON body data
-app.use(express.urlencoded({ extended: true })); // To parse URL-encoded body data
+app.use(cors()); // Enable CORS for all routes
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Connect to MongoDB
+// MongoDB Connection using Mongoose
+const uri = "mongodb+srv://connecttobuilder:admin%40connecttobuilder@connecttobuillder.uwvx6.mongodb.net/test?retryWrites=true&w=majority";
+//"mongodb://localhost:27017"
 mongoose
-  .connect("mongodb://localhost:27017/connectToBuilder")
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+  .connect(uri, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    serverSelectionTimeoutMS: 10000, // Set timeout for server selection
+  })
+  .then(() => {
+    console.log("Connected to MongoDB using Mongoose!");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });
 
-// Serve static files from the frontend directory
-app.use(express.static(path.join(__dirname, "../frontend")));
-
-// Use property routes
+// Property routes
 app.use("/api", propertyRoutes);
 
-// Default route to serve index.html
+// Serve static files
+app.use(express.static(path.join(__dirname, "../frontend")));
+
+// Default route
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/index.html"));
+  res.sendFile(path.join(__dirname, "../frontend/mainPage.html"));
 });
 
-// Start the server
+// Simulate server start
+app.post("/api/start-server", (req, res) => {
+  console.log("Server started (simulated)");
+  res.status(200).send("Server started");
+});
+
+// Start server
 const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Server running on http://localhost:${PORT}`)
+);
