@@ -7,18 +7,51 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #F4F4F4; /* Light Gray Background */
-    color: #333; /* Dark Gray Text */
+    background-color: #FFFFFF; /* White Background */
+    color: #4D2600; /* Orangish Brown Text */
     line-height: 1.6;
+    padding: 10px; /* Adds breathing space on smaller devices */
+}
+
+h1 {
+    font-size: 60px;
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2{
+    display: block;
+    font-size: 30px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
 }
 
 /* Header */
 header {
-    background-color: #4CAF50; /* Primary Green */
+    background-color: #D2691E; /* Orangish Brown */
     color: #fff;
     padding: 20px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header .logo {
+    max-width: 120px;
+    height: auto;
 }
 
 header nav {
@@ -26,17 +59,19 @@ header nav {
 }
 
 header nav .btn {
-    background-color: #fff; /* White for buttons */
-    color: #4CAF50; /* Green Text */
+    background-color: #fff; /* White Buttons */
+    color: #D2691E; /* Orangish Brown Text */
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
+    display: inline-block;
+    margin: 5px 0; /* Space buttons in mobile view */
 }
 
 header nav .btn:hover {
-    background-color: #2C6B29; /* Dark Green on hover */
+    background-color: #8B4513; /* Dark Orangish Brown on hover */
     color: #fff;
 }
 
@@ -48,8 +83,8 @@ main {
 }
 
 main nav .btn {
-    background-color: lightgreen; 
-    color: #000000; 
+    background-color: #FFDAB9; /* Light Peach */
+    color: #4D2600; /* Orangish Brown Text */
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -58,8 +93,8 @@ main nav .btn {
 }
 
 main nav .btn:hover {
-    background-color: #000100; 
-    color: lightgreen;
+    background-color: #8B4513; /* Dark Orangish Brown */
+    color: #FFDAB9;
 }
 
 /* Table Styles */
@@ -79,7 +114,7 @@ th, td {
 }
 
 th {
-    background-color: #4CAF50; /* Green Header */
+    background-color: #D2691E; /* Orangish Brown Header */
     color: white;
     font-size: 1.1rem;
 }
@@ -94,13 +129,13 @@ td button {
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    background-color: #FF5722; /* Orange for Action Buttons */
+    background-color: #FF4500; /* Bright Orange for Action Buttons */
     color: #fff;
     transition: background-color 0.3s ease;
 }
 
 td button:hover {
-    background-color: #E64A19; /* Darker Orange on hover */
+    background-color: #B22222; /* Dark Red on hover */
 }
 
 td button:focus {
@@ -131,46 +166,101 @@ form input, form textarea {
 }
 
 form button {
-    background-color: #4CAF50; /* Green Button */
+    background-color: #D2691E; /* Orangish Brown Button */
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #2C6B29; /* Dark Green on hover */
+    background-color: #8B4513; /* Dark Orangish Brown on hover */
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #4CAF50; /* Green Footer */
+    background-color: #D2691E; /* Orangish Brown Footer */
     color: white;
     margin-top: 20px;
 }
 
-/* Responsive Design */
+/* Responsive Design
 @media (max-width: 768px) {
+    header, footer {
+        padding: 15px;
+    }
+
     table {
         font-size: 14px;
+    }
+
+    table, th, td {
+        display: block;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    td button {
+        margin: 5px 0;
+        font-size: 0.8rem;
     }
 
     form input, form button {
         font-size: 0.9rem;
     }
 
+    form {
+        padding: 15px;
+    }
+
     header nav .btn {
         font-size: 0.9rem;
+        padding: 8px 12px;
     }
 }
+
+@media (max-width: 480px) {
+    header, footer {
+        text-align: left;
+    }
+
+    td {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    form input, form textarea, form button {
+        width: 100%;
+    }
+
+    header nav .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+*/
+
+/* Additional Styles */
 #filter-form {
     margin: 20px 0;
 }
 
 .property-card {
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
+    background-color: #FFDAB9; /* Light Peach */
+    color: #4D2600; /* Orangish Brown */
 }

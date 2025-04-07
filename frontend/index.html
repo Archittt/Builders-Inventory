@@ -1,104 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Builder Inventory</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200, initial-scale=1" />
+    <title>ConnectToBuilder</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  </head>
+  <body>
     <header>
-        <h1>ConnectToBuilder</h1>
-        <nav>
-            <a href="add-property.html" class="btn">Add Property</a>
-        </nav>
+      <div class="logo-container">
+        <a href="index.html">
+          <img src="logo.png" alt="ConnectToBuilderLogo" class="logo" />
+        </a>
+      </div>
+
+      <h1>ConnectToBuilder</h1>
+      <p>Your Trusted Partner for Real Estate Solutions</p>
+      <nav>
+        <a href="#services" class="btn">Services</a>
+        <a href="#features" class="btn">Features</a>
+        <a href="#future" class="btn">Future Enhancements</a>
+        <a href="#contact" class="btn">Contact Us</a>
+        <a href="" class="dum"> </a>
+        <a href="signin.html" class="btn1">Sign In</a>
+      </nav>
     </header>
 
     <main>
-        <nav>
-            <a href="filter-property.html" class="btn">Filter</a>
-        </nav>
-        <table id="property-list">
-            <thead>
-                <tr>
-                    <th>Sector</th>
-                    <th>Pocket</th>
-                    <th>Site No.</th>
-                    <th>Size</th>
-                    <th>Demand</th>
-                    <th>Description</th>
-                    <th>Builder</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Properties will be injected here -->
-            </tbody>
-        </table>
+
+      <section id="services">
+        <h2>Our Services</h2>
+        <ul>
+          <li>
+            We provide one click search for current inventory of builder floors
+            in your specific area.
+          </li>
+          <li>
+            Property Listings: A comprehensive database of properties across
+            various locations.
+          </li>
+          <li>
+            Builder Connections: Direct access to trusted builders and sellers.
+          </li>
+          <li>
+            Property Management: Tools to manage, update, and track property
+            information.
+          </li>
+        </ul>
+      </section>
+
+      <section id="demo">
+        <h2>Demo List</h2>
+        <img src="demo.png" alt="Demo">
+      </section>
+
+      <section id="features">
+        <h2>Features</h2>
+        <div class="feature-card">
+          <h3>Easy-to-Use Interface</h3>
+          <p>
+            Simple navigation and intuitive design for a seamless user
+            experience.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Secure Data</h3>
+          <p>
+            Robust security protocols to ensure our client information is safe.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Real-Time Updates</h3>
+          <p>Stay updated with the latest property trends and listings.</p>
+        </div>
+      </section>
+
+      <section id="future">
+        <h2>Future Enhancements</h2>
+        <p>
+          We are committed to continuous improvement. Our future enhancements
+          include:
+        </p>
+        <ul>
+          <li>AI-Powered Property Recommendations</li>
+          <li>Integration with AR/VR for virtual property tours</li>
+          <li>Expanded geographical coverage</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact Us</h2>
+        <form>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </section>
     </main>
 
     <footer>
-        <p>&copy; 2024 ConnectToBuilder All Rights Reserved.</p>
+      <p>&copy; 2024 ConnectToBuilder. All rights reserved.</p>
     </footer>
-
-    <script>
-        const API_URL = "http://localhost:3000/api";
-
-        async function fetchProperties() {
-            try {
-                const response = await fetch(`${API_URL}/properties`);
-                const properties = await response.json();
-
-                const propertyList = document.getElementById("property-list").querySelector("tbody");
-                propertyList.innerHTML = "";
-
-                properties.forEach((property) => {
-                    const row = document.createElement("tr");
-
-                    row.innerHTML = `
-                        <td>${property.sector}</td>
-                        <td>${property.pocket}</td>
-                        <td>${property.siteNo}</td>
-                        <td>${property.size}</td>
-                        <td>${property.demand}</td>
-                        <td>${property.description}</td>
-                        <td>${property.builder}</td>
-                        <td>
-                            <button onclick="editProperty('${property._id}')">Edit</button>
-                            <button onclick="deleteProperty('${property._id}')">Delete</button>
-                        </td>
-                    `;
-
-                    propertyList.appendChild(row);
-                });
-            } catch (error) {
-                console.error("Error fetching properties:", error);
-            }
-        }
-
-        function editProperty(id) {
-            window.location.href = `/edit-property.html?id=${id}`;
-        }
-
-        async function deleteProperty(id) {
-            if (confirm("Are you sure you want to delete this property?")) {
-                try {
-                    const response = await fetch(`/api/delete-property/${id}`, { method: "DELETE" });
-
-                    if (response.ok) {
-                        alert("Property deleted successfully!");
-                        fetchProperties();
-                    } else {
-                        const errorData = await response.json();
-                        alert(`Failed to delete property: ${errorData.error}`);
-                    }
-                } catch (error) {
-                    console.error("Error deleting property:", error);
-                }
-            }
-        }
-
-        fetchProperties();
-    </script>
-</body>
+  </body>
 </html>

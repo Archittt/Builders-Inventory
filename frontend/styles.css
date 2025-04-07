@@ -1,0 +1,214 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFFFFF;
+    color: #4D2600;
+    line-height: 1.6;
+}
+
+h1 {
+    font-size: 60px;
+    display: block;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+h2{
+    display: block;
+    font-size: 30px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}
+
+/* Header */
+header {
+    background-color: #D2691E;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header .logo-container {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header .logo {
+    max-width: 120px;
+    height: auto;
+}
+
+header nav {
+    display: flex;
+    justify-content: center; /* Center align the buttons */
+    gap: 20px; /* Add space between buttons */
+    flex-wrap: wrap; /* Allow buttons to wrap if needed */
+    margin-top: 10px;
+}
+
+header nav .btn, header nav .btn1 {
+    background-color: #fff;
+    color: #D2691E;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s;
+    font-size: 1rem;
+}
+
+header nav .btn:hover, header nav .btn1:hover {
+    background-color: #8B4513;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Sign In Button */
+header nav .btn1 {
+    background-color: #FFDAB9; /* Light Peach for differentiation */
+    margin-left: 10px;
+}
+
+header nav .btn1:hover {
+    background-color: #D2691E;
+    color: white;
+}
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #D2691E;
+    margin-bottom: 10px;
+}
+
+/* Responsive Styles */
+
+/* PC View (Default) */
+@media (min-width: 1025px) {
+    header nav {
+        flex-wrap: nowrap; /* Buttons stay in a single row */
+    }
+
+    header nav .btn, header nav .btn1 {
+        padding: 15px 40px; /* Larger buttons for PC */
+    }
+}
+
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 1024px) {
+    header nav {
+        flex-wrap: wrap; /* Buttons can wrap */
+        gap: 15px; /* Adjust spacing for tablets */
+    }
+
+    header nav .btn, header nav .btn1 {
+        padding: 15px 30px;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+    header nav {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 10px; /* Add spacing between buttons */
+    }
+
+    header nav .btn, header nav .btn1 {
+        width: 90%; /* Buttons take most of the screen width */
+        padding: 12px 25px;
+        font-size: 0.9rem; /* Slightly smaller font size for mobiles */
+    }
+
+    header nav .btn1 {
+        margin-top: 10px; /* Separate the "Sign In" button */
+    }
+}
+
+
+
+/* Main Content */
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #D2691E;
+    margin-bottom: 10px;
+}
+
+.feature-card {
+    background-color: #FFDAB9; /* Light Peach */
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form input, form textarea, form button {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #D2691E; /* Orangish Brown Button */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: #8B4513; /* Dark Orangish Brown */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #D2691E; /* Orangish Brown Footer */
+    color: white;
+    margin-top: 20px;
+}

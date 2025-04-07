@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1200, initial-scale=1" />
     <title>Filter Property</title>
     <link rel="stylesheet" href="style.css" />
-</head>
-<body>
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <a href="mainPage.html">
+          <img src="logo.png" alt="ConnectToBuilderLogo" class="logo" />
+        </a>
+      </div>
+      <h1>ConnectToBuilder</h1>
+      <h2>Filter Property</h2>
+    </header>
     <form id="filter-form">
-        <input type="text" name="sector" placeholder="Sector" />
-        <input type="text" name="pocket" placeholder="Pocket" />
-        <input type="text" name="size" placeholder="Size" />
-        <input type="text" name="demand" placeholder="Demand" />
-        <button type="submit">Filter</button>
+      <input type="text" name="sector" placeholder="Sector" />
+      <input type="text" name="pocket" placeholder="Pocket" />
+      <input type="text" name="size" placeholder="Size" />
+      <input type="text" name="builder" placeholder="Builder/Seller" />
+      <!-- <input type="text" name="demand" placeholder="Available Floors" /> -->
+      <button type="submit">Filter</button>
     </form>
-    <div id="filtered-results"></div>    
+    <div id="filtered-results"></div>
 
     <script src="scripts/filter.js"></script>
-</body>
+    <script src="scripts/auth.js"></script>
+  </body>
 </html>
