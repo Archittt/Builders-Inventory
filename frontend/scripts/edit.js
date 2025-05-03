@@ -36,7 +36,7 @@ document
 
       if (response.ok) {
         alert("Property updated successfully!");
-        window.location.href = "./index.html";
+        window.location.href = "../mainPage.html";
       } else {
         const errorData = await response.json();
         alert(`Failed to update property: ${errorData.error}`);
