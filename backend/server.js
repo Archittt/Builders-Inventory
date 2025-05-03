@@ -2,9 +2,14 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
+const jwt = require("jsonwebtoken");
+const SECRET_KEY = "your_super_secret_key";
 const propertyRoutes = require("./routes/propertyRoutes");
 
+
 const app = express();
+
+app.use(cors()); // Allow all origins for now
 
 // Middleware
 app.use(cors()); // Enable CORS for all routes
@@ -12,8 +17,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection using Mongoose
-const uri = "yourmongodburl";
-//"mongodb://localhost:27017"
+const uri = "your_mongoDB_url";
+// "mongodb://localhost:27017"
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
@@ -26,6 +31,23 @@ mongoose
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
   });
+  
+  
+  
+app.post("/api/login", (req, res) => {
+  console.log("Login attempt received:", req.body); // Log the received data
+  const { username, password } = req.body;
+
+  if (username === "admin" && password === "admin") {
+    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: "180d" });
+    console.log("JWT Token generated:", token); // Log the generated token
+    return res.json({ token });
+  }
+
+  return res.status(401).json({ error: "Invalid credentials" });
+});
+
+
 
 // Property routes
 app.use("/api", propertyRoutes);
@@ -47,5 +69,5 @@ app.post("/api/start-server", (req, res) => {
 // Start server
 const PORT = 3000;
 app.listen(PORT, () =>
-  console.log(`Server running on http://localhost:${PORT}`)
+  console.log(`Server running on https://localhost:${PORT}`)
 );
