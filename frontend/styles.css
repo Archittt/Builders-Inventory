@@ -5,6 +5,39 @@
     box-sizing: border-box;
 }
 
+#whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+#whatsapp-float img {
+  width: 75px;
+  height: 75px;
+}
+
+#token-info-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+#token-info {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  min-width: 250px;
+}
+
+
 body {
     font-family: 'Arial', sans-serif;
     background-color: #FFFFFF;
@@ -15,10 +48,6 @@ body {
 h1 {
     font-size: 60px;
     display: block;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
 }
@@ -26,10 +55,6 @@ h1 {
 h2{
     display: block;
     font-size: 30px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
 }
@@ -56,7 +81,7 @@ header .logo {
 header nav {
     display: flex;
     justify-content: center; /* Center align the buttons */
-    gap: 20px; /* Add space between buttons */
+    gap: 10px; /* Add space between buttons */
     flex-wrap: wrap; /* Allow buttons to wrap if needed */
     margin-top: 10px;
 }
@@ -148,8 +173,6 @@ section h2 {
         margin-top: 10px; /* Separate the "Sign In" button */
     }
 }
-
-
 
 /* Main Content */
 main {

@@ -5,39 +5,50 @@
     box-sizing: border-box;
 }
 
+#token-info-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#token-info {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    min-width: 250px;
+}
+
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #FFFFFF; /* White Background */
-    color: #4D2600; /* Orangish Brown Text */
+    background-color: #FFFFFF;
+    color: #4D2600;
     line-height: 1.6;
-    padding: 10px; /* Adds breathing space on smaller devices */
+    padding: 10px;
+    min-width: 1200px; /* Force desktop layout on all devices */
+    overflow-x: auto;
 }
 
 h1 {
     font-size: 60px;
-    display: block;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
 }
 
-h2{
-    display: block;
+h2 {
     font-size: 30px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
     font-weight: bold;
     unicode-bidi: isolate;
 }
 
 /* Header */
 header {
-    background-color: #D2691E; /* Orangish Brown */
+    background-color: #D2691E;
     color: #fff;
     padding: 20px;
     text-align: center;
@@ -59,19 +70,19 @@ header nav {
 }
 
 header nav .btn {
-    background-color: #fff; /* White Buttons */
-    color: #D2691E; /* Orangish Brown Text */
+    background-color: #fff;
+    color: #D2691E;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     transition: background-color 0.3s ease;
     display: inline-block;
-    margin: 5px 0; /* Space buttons in mobile view */
+    margin: 5px;
 }
 
 header nav .btn:hover {
-    background-color: #8B4513; /* Dark Orangish Brown on hover */
+    background-color: #8B4513;
     color: #fff;
 }
 
@@ -83,8 +94,8 @@ main {
 }
 
 main nav .btn {
-    background-color: #FFDAB9; /* Light Peach */
-    color: #4D2600; /* Orangish Brown Text */
+    background-color: #FFDAB9;
+    color: #4D2600;
     padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
@@ -93,7 +104,7 @@ main nav .btn {
 }
 
 main nav .btn:hover {
-    background-color: #8B4513; /* Dark Orangish Brown */
+    background-color: #8B4513;
     color: #FFDAB9;
 }
 
@@ -102,7 +113,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: #fff; /* White Background for Table */
+    background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -114,7 +125,7 @@ th, td {
 }
 
 th {
-    background-color: #D2691E; /* Orangish Brown Header */
+    background-color: #D2691E;
     color: white;
     font-size: 1.1rem;
 }
@@ -129,17 +140,47 @@ td button {
     cursor: pointer;
     border-radius: 5px;
     border: none;
-    background-color: #FF4500; /* Bright Orange for Action Buttons */
+    background-color: #FF4500;
     color: #fff;
     transition: background-color 0.3s ease;
 }
 
 td button:hover {
-    background-color: #B22222; /* Dark Red on hover */
+    background-color: #B22222;
 }
 
 td button:focus {
     outline: none;
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.pagination-container button {
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #333;
+  transition: background-color 0.3s ease;
+}
+
+.pagination-container button:hover {
+  background-color: #ddd;
+}
+
+.pagination-container .current-page {
+  font-size: 16px;
+  font-weight: bold;
+  color: #007bff;
+  padding: 4px 10px;
 }
 
 /* Form Styles */
@@ -148,7 +189,7 @@ form {
     flex-direction: column;
     gap: 10px;
     margin-top: 20px;
-    background-color: #fff; /* White Background for Forms */
+    background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -162,94 +203,35 @@ form input, form textarea, form button {
 }
 
 form input, form textarea {
-    background-color: #F9F9F9; /* Light Background for Inputs */
+    background-color: #F9F9F9;
 }
 
 form button {
-    background-color: #D2691E; /* Orangish Brown Button */
+    background-color: #D2691E;
     color: white;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 form button:hover {
-    background-color: #8B4513; /* Dark Orangish Brown on hover */
+    background-color: #8B4513;
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #D2691E; /* Orangish Brown Footer */
+    background-color: #D2691E;
     color: white;
     margin-top: 20px;
 }
 
-/* Responsive Design
-@media (max-width: 768px) {
-    header, footer {
-        padding: 15px;
-    }
-
-    table {
-        font-size: 14px;
-    }
-
-    table, th, td {
-        display: block;
-        width: 100%;
-    }
-
-    th, td {
-        padding: 10px;
-        text-align: left;
-    }
-
-    td {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    td button {
-        margin: 5px 0;
-        font-size: 0.8rem;
-    }
-
-    form input, form button {
-        font-size: 0.9rem;
-    }
-
-    form {
-        padding: 15px;
-    }
-
-    header nav .btn {
-        font-size: 0.9rem;
-        padding: 8px 12px;
+/* Disable responsive collapse */
+@media screen and (max-width: 1200px) {
+    html {
+        zoom: 0.8;
     }
 }
-
-@media (max-width: 480px) {
-    header, footer {
-        text-align: left;
-    }
-
-    td {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    form input, form textarea, form button {
-        width: 100%;
-    }
-
-    header nav .btn {
-        width: 100%;
-        text-align: center;
-    }
-}
-*/
 
 /* Additional Styles */
 #filter-form {
@@ -261,6 +243,6 @@ footer {
     padding: 10px;
     margin: 10px 0;
     border-radius: 5px;
-    background-color: #FFDAB9; /* Light Peach */
-    color: #4D2600; /* Orangish Brown */
+    background-color: #FFDAB9;
+    color: #4D2600;
 }
