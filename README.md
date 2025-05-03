@@ -11,7 +11,7 @@ A **web-based application** crafted to streamline the management of real estate 
 -  **View Listings**: Display all property records in a clean, organized format.
 -  **Edit & Delete**: Keep inventory accurate by updating or removing outdated entries.
 -  **Responsive UI**: Optimized for desktops, tablets, and mobile devices.
--  **IP Whitelisting**: Only allow access to specific IPs for enhanced security, preventing unauthorized logins and server access.
+-  **Token-Based Authentication**: Secure access to admin routes and sensitive data through JWT-based login, replacing the older IP whitelisting system.
 
 ---
 
@@ -20,7 +20,7 @@ A **web-based application** crafted to streamline the management of real estate 
 - **Backend**: Node.js, Express.js
 - **Database**: MongoDB 
 - **API Communication**: Fetch API
-- **Security**: IP Whitelisting Middleware
+- **Security**: JWT (JSON Web Token) Authentication
 
 ---
 
@@ -29,12 +29,11 @@ A **web-based application** crafted to streamline the management of real estate 
 2. View all properties in the centralized inventory table.
 3.  Use the filter/search form to narrow down results.
 4.  Use edit/delete buttons to manage inventory in real-time.
-5.   Only users from **authorized IP addresses** can access admin login and backend routes.
-
+5.  Access to protected routes and admin functionalities is restricted to authenticated users via token-based login.
 ---
 
 ##  Future Enhancements
-- **User Authentication** for admin-only access.
+- **Role-Based Access Control** for different user types.
 -  **Export Data** to CSV or PDF reports.
 - **Improved UI/UX** for a smoother and more intuitive experience.
 -  **Analytics Dashboard** for property insights and trends.
