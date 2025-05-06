@@ -1,4 +1,5 @@
 const API_URL = "http://localhost:3000/api";
+
 const PROPERTIES_PER_PAGE = 10;
 let currentPage = 1;
 let allProperties = [];
@@ -51,6 +52,11 @@ function renderPage(page) {
       <td>${property.description}</td>
       <td>${property.builder}</td>
       <td><a href="tel:${property.mobileNo}">${property.mobileNo}</a></td>
+      <!-- Edit And Delete Button -->
+      <td>
+        <button class="edit-btn" onclick="editProperty('${property._id}')">Edit</button>
+        <button class="delete-btn" onclick="deleteProperty('${property._id}')">Delete</button>
+      </td>
     `;
     propertyList.appendChild(row);
   });
@@ -71,6 +77,38 @@ function renderPagination() {
       renderPagination();
     });
     paginationContainer.appendChild(btn);
+  }
+}
+
+// Edit and Delete Function
+function editProperty(id) {
+  window.location.href = `edit-property.html?id=${id}`;
+}
+
+async function deleteProperty(id) {
+  const confirmDelete = confirm("Are you sure you want to delete this property?");
+  if (!confirmDelete) return;
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const response = await fetch(`${API_URL}/delete-property/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      alert("Property deleted successfully.");
+      fetchProperties(); // Reload properties
+    } else {
+      const error = await response.json();
+      alert(`Error deleting property: ${error.error}`);
+    }
+  } catch (error) {
+    console.error("Error deleting property:", error);
+    alert("An error occurred while deleting the property.");
   }
 }
 

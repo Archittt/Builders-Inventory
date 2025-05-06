@@ -1,4 +1,3 @@
-
 // Check if a token exists when the signin page is loaded
 window.onload = function () {
   const token = localStorage.getItem("token");
