@@ -69,5 +69,5 @@ app.post("/api/start-server", (req, res) => {
 // Start server
 const PORT = 3000;
 app.listen(PORT, () =>
-  console.log(`Server running on https://localhost:${PORT}`)
+  console.log(`Server runninggg`)
 );
