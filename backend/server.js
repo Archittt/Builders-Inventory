@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "your_super_secret_key";
+const SECRET_KEY = "your_super_secret_key"; // Keep this in .env ideally
 const propertyRoutes = require("./routes/propertyRoutes");
 
 
@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection using Mongoose
-const uri = "your_mongoDB_url";
+const uri = "mongodb+srv://connecttobuilder:admin%40connecttobuilder@connecttobuillder.uwvx6.mongodb.net/test?retryWrites=true&w=majority";
 // "mongodb://localhost:27017"
 mongoose
   .connect(uri, {
@@ -69,5 +69,5 @@ app.post("/api/start-server", (req, res) => {
 // Start server
 const PORT = 3000;
 app.listen(PORT, () =>
-  console.log(`Server runninggg`)
+  console.log(`Server running on https://localhost:${PORT}`)
 );
