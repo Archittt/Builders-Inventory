@@ -183,6 +183,29 @@ td button:focus {
   padding: 4px 10px;
 }
 
+.pagination-container button {
+  padding: 6px 12px;
+  margin: 2px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: normal;
+  transition: background-color 0.3s;
+}
+
+.pagination-container button:hover {
+  background-color: #ddd;
+}
+
+.pagination-container .active-page {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+}
+
+
 /* Form Styles */
 form {
     display: flex;
