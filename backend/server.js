@@ -17,7 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection using Mongoose
-const uri = "mongodb+srv://connecttobuilder:admin%40connecttobuilder@connecttobuillder.uwvx6.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = "cloudMongoDB";
 // "mongodb://localhost:27017"
 mongoose
   .connect(uri, {
